@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С днём рождения, Хошимурад ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb6c9, #ffdce7, #fff0f5);
+  color: #5b2638;
+  text-align: center;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 25px 15px 50px;
+}
+
+.heart {
+  font-size: 70px;
+  animation: pulse 1.5s infinite;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 25px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 10px 30px rgba(120,50,80,0.15);
+}
+
+.question {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 2px solid #f2a1b8;
+  border-radius: 15px;
+  padding: 12px;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #d94f7b;
+}
+
+button {
+  margin-top: 12px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #e85b88;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d94472;
+}
+
+.answer {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #a62d55;
+}
+
+.final {
+  display: none;
+  background: white;
+  border-radius: 25px;
+  padding: 30px 20px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(120,50,80,0.2);
+}
+
+.final h2 {
+  font-size: 30px;
+}
+
+.final p {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.floating {
+  position: fixed;
+  font-size: 25px;
+  animation: fall 6s linear infinite;
+  top: -40px;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="floating" style="left:10%; animation-delay:0s;">❤️</div>
+<div class="floating" style="left:30%; animation-delay:2s;">💕</div>
+<div class="floating" style="left:55%; animation-delay:1s;">💗</div>
+<div class="floating" style="left:80%; animation-delay:3s;">💖</div>
+
+<div class="container">
+
+  <div class="heart">❤️</div>
+
+  <h1>С днём рождения, Хошимурад!</h1>
+
+  <p class="subtitle">
+    Сегодня особенный день, поэтому я приготовила для тебя
+    маленькую страничку с вопросами и тёплыми словами 💕
+  </p>
+
+  <div class="card">
+    <div class="question">
+      1. Напиши 3 причины, почему я тебе дорога ❤️
+    </div>
+    <textarea id="q1" placeholder="Твой ответ..."></textarea>
+    <button onclick="saveAnswer('q1','a1')">Ответить</button>
+    <div class="answer" id="a1"></div>
+  </div>
+
+  <div class="card">
+    <div class="question">
+      2. Назови наше самое милое воспоминание 🥰
+    </div>
+    <textarea id="q2" placeholder="Твой ответ..."></textarea>
+    <button onclick="saveAnswer('q2','a2')">Ответить</button>
+    <div class="answer" id="a2"></div>
+  </div>
+
+  <div class="card">
+    <div class="question">
+      3. Придумай для меня красивое и милое прозвище 💗
+    </div>
+    <textarea id="q3" placeholder="Твой ответ..."></textarea>
+    <button onclick="saveAnswer('q3','a3')">Ответить</button>
+    <div class="answer" id="a3"></div>
+  </div>
+
+  <div class="card">
+    <div class="question">
+      4. Напиши мне маленькое приятное пожелание ✨
+    </div>
+    <textarea id="q4" placeholder="Твой ответ..."></textarea>
+    <button onclick="saveAnswer('q4','a4')">Ответить</button>
+    <div class="answer" id="a4"></div>
+  </div>
+
+  <div class="card">
+    <div class="question">
+      5. Придумай одно приятное дело, которое мы могли бы сделать вместе 🌸
+    </div>
+    <textarea id="q5" placeholder="Твой ответ..."></textarea>
+    <button onclick="saveAnswer('q5','a5')">Ответить</button>
+    <div class="answer" id="a5"></div>
+  </div>
+
+  <button onclick="showFinal()">
+    💝 Открыть поздравление
+  </button>
+
+  <div class="final" id="final">
+    <h2>🎉 Хошимурад, с днём рождения! 🎉</h2>
+
+    <p>
+      Пусть твоя жизнь будет наполнена счастьем,
+      улыбками, добрыми людьми и красивыми моментами.
+      Желаю тебе исполнения желаний, удачи и
+      незабываемых дней! ❤️
+    </p>
+
+    <p>
+      Пусть каждый новый день приносит тебе
+      радость и повод улыбаться. 💕
+    </p>
+
+    <div style="font-size:45px;">
+      ❤️ 💖 ❤️ 💖 ❤️
+    </div>
+  </div>
+
+</div>
+
+<script>
+function saveAnswer(inputId, answerId) {
+  const text = document.getElementById(inputId).value.trim();
+
+  if (text === "") {
+    document.getElementById(answerId).innerText =
+      "Напиши свой ответ 💕";
+    return;
+  }
+
+  document.getElementById(answerId).innerText =
+    "Ответ сохранён ❤️";
+}
+
+function showFinal() {
+  document.getElementById("final").style.display = "block";
+  document.getElementById("final").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+</script>
+
+</body>
+</html>
